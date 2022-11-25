@@ -4,15 +4,10 @@ const db = require("../models")
 const express = require('express')
 const router = express.Router()
 
-//index route
-router.get('/books', (req, res) => {
-    // db.Book.find({}, (err, books) => {
+//Test Route
+router.get('/', (req, res) => {
         res.render('home')
-    //     , {
-    //         tabTitle: "Book Worm",
-    //         books: books
-    //     })
-    // })
 })
+
 
 module.exports = router

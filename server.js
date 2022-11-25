@@ -6,6 +6,7 @@
 const methodOverride = require('method-override')
 const express = require('express')
 const app = express()
+const port = 3000
 
 //access models
 const db = require('./models')
@@ -14,7 +15,7 @@ const db = require('./models')
 const booksCtrl = require('./controllers/books')
 const membersCtrl = require('./controllers/members')
 
-const port = 3000
+
 
 //+++++++++++++
 //Middleware
@@ -30,14 +31,30 @@ app.use(express.urlencoded({extended: true}))
 //an example function that shows how middleware will run every time a route is accessed
 app.use((req, res, next) => {
     console.log('I run for all routes');
+    next()
 });
 
 //+++++++++++++
 //Routes
 //+++++++++++++
+// Index Route (GET/Read): We'll leave this route in the server.js since it affects both models
+app.get('/', (req, res) => {
+    // query locations from the database
+    db.Book.find({}, (err, books) => {
+        // query log entries from the database
+        db.Member.find({}, (err, members) => {
+            // render `index.ejs` after data has been queried
+            res.render('home', {
+                books: books,
+                members: members,
+                tabTitle: 'Bookworm'
+            })
+        })
+    })
+})
 //All routes affecting the books model: tells our app to look at controllers/books.js file to handle all routes that begin with localhost:3000/books
 app.use('/books', booksCtrl)
-//All routes affecting the memberss model: tells our app to look at controllers/members.js file to handle all routes that begin with localhost:3000/members
+//All routes affecting the members model: tells our app to look at controllers/members.js file to handle all routes that begin with localhost:3000/members
 app.use('/members', membersCtrl)
 
 

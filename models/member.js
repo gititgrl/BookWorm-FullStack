@@ -8,13 +8,14 @@ const Schema = mongoose.Schema
 const memberSchema = new Schema (
     {
         name: { type: String, required: true },
-        favorite_book: { type: String, default: "https://m.media-amazon.com/images/I/51jyI6lYi1L._AC_SY780_.jpg"}
+        fav_book: { type: String },
+        fav_author: { type: String }
 
     }
 )
 
-// Create a Book model using the bookSchema
-const Member = mongoose.model('Member', memberSchema)
+// Create a Member model using the memberSchema
+const Member = mongoose.model('member', memberSchema)
 
-//export the Book model, will be accessed in index.js
+//export the Member model, will be accessed in index.js
 module.exports = Member
