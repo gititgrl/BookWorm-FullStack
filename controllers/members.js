@@ -5,14 +5,15 @@ const express = require('express')
 const router = express.Router()
 
 //index route
-router.get('/books', (req, res) => {
-    // db.Book.find({}, (err, books) => {
+router.get('/members', (req, res) => {
+    // db.Member.find({}, (err, members) => {
         res.render('home')
-    //     , {
-    //         tabTitle: "Book Worm",
-    //         books: books
-    //     })
-    // })
 })
+//         , {
+//             tabTitle: "Book Worm",
+//             member: members
+//         })
+//     })
+// })
 
 module.exports = router
