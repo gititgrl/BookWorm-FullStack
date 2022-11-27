@@ -31,7 +31,7 @@ const db = require('./')
     
 const seed_members = [
     {
-        name: 'Rita Jenkins',
+        name: 'Shannon Jenkins',
         fav_book: 'The Bell Jar',
         fav_author: 'Emily Dickinson'
     }, {

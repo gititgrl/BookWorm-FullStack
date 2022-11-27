@@ -6,7 +6,9 @@ const router = express.Router()
 
 //Test Route
 router.get('/', (req, res) => {
-        res.render('home')
+        db.Member.find({}, (err, members) => {
+                res.send(members)
+        })
 })
 
 module.exports = router

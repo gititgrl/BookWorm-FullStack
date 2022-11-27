@@ -6,7 +6,10 @@ const router = express.Router()
 
 //Test Route
 router.get('/', (req, res) => {
-        res.render('home')
+    db.Book.find({}, (err, books) => {
+        res.send(books)
+    })
+        
 })
 
 

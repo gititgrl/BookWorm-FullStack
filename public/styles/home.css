@@ -1,0 +1,19 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Gentium+Book+Plus&family=Rajdhani:wght@500&display=swap');
+
+ body {
+    background-color: blanchedalmond;
+    font-family: 'Gentium Book Plus', serif;
+ }.center-div {
+    padding-top: 10%;
+    
+ }
+ form {
+    padding: 0 3em;
+ }
+ #login.title>span {
+    font-size: .8em;
+ }
+ footer {
+    text-align: center;
+ }

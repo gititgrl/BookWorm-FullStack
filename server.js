@@ -7,7 +7,9 @@ const methodOverride = require('method-override')
 const express = require('express')
 const app = express()
 const port = 3000
-
+const bodyparser = require('body-parser')
+const session = require("express-session")
+const router = require('./controllers/loginRoute.js')
 //access models
 const db = require('./models')
 
@@ -22,6 +24,7 @@ const membersCtrl = require('./controllers/members')
 //+++++++++++++
 //set folder for static files
 app.use(express.static('public'))
+
 //sets the view engine to EJS for our app 
 app.set('view engine', 'ejs')
 //method-override allows us to interpret POST requests from the browser as another request type: DELETE, PUT, etc.
@@ -33,25 +36,37 @@ app.use((req, res, next) => {
     console.log('I run for all routes');
     next()
 });
+app.use(bodyparser.json())
+app.use(bodyparser.urlencoded({extended: true}))
+//Session is so that the email will be remembered next log in
+app.use(session({
+    secret: 'secret',
+    resave: false,
+    savUninitialized: true
+}))
+//login route
+app.use('/route', router)
+
+
 
 //+++++++++++++
 //Routes
 //+++++++++++++
-// Index Route (GET/Read): We'll leave this route in the server.js since it affects both models
+// Index Route (GET/Read): This route affects both models
 app.get('/', (req, res) => {
-    // query locations from the database
-    db.Book.find({}, (err, books) => {
-        // query log entries from the database
-        db.Member.find({}, (err, members) => {
-            // render `index.ejs` after data has been queried
+    // query books from the database
+    // db.Book.find({}, (err, books) => {
+    //     // query members from the database
+    //     db.Member.find({}, (err, members) => {
+    //         // render `home.ejs` after data has been queried
             res.render('home', {
-                books: books,
-                members: members,
+                // books: books,
+                // members: members,
                 tabTitle: 'Bookworm'
             })
         })
-    })
-})
+//     })
+// })
 //All routes affecting the books model: tells our app to look at controllers/books.js file to handle all routes that begin with localhost:3000/books
 app.use('/books', booksCtrl)
 //All routes affecting the members model: tells our app to look at controllers/members.js file to handle all routes that begin with localhost:3000/members
@@ -62,5 +77,5 @@ app.use('/members', membersCtrl)
 //Listener
 //+++++++++++++
 app.listen(port, () => {
-    console.log('App is running')
+    console.log('App is running on http://localhost:3000')
 })
