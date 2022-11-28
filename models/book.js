@@ -18,5 +18,5 @@ const bookSchema = new Schema (
 // Create a Book model using the bookSchema
 const Book = mongoose.model('book', bookSchema)
 
-//export the Book model, will be accessed in index.js
+//export the Book model
 module.exports = Book

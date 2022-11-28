@@ -1,0 +1,38 @@
+<!-- Header partial-->
+    <%- include ('./partials/head.ejs') %>
+    
+<body>
+    <h1>My Bookworm</h1>
+    <div class="flex-container">
+                <% for (let book of books) { %>
+                    <a href="/books/<%= book._id %>">
+                        <figure class="book-card">
+                            <img alt="<%= book.name %>" src="<%= book.img%>" width="300">
+                            <figcaption>
+                                <h2>
+                                    <%=book.name%>
+                                </h2>
+                                <h4>
+                                    <%= book.description %>
+                                </h4>
+                            </figcaption>
+                        </figure>
+                    </a>
+                    <% } %>
+    </div>
+    <div class="flex-container">
+        <% for (let member of members) { %>
+            <a href="/members/<%= member._id %>">
+                <figure class="member-card">
+                    <figcaption>
+                        <h2>
+                            <%=member.name%>
+                        </h2>
+                    </figcaption>
+                </figure>
+            </a>
+            <% } %>
+    </div>
+<!-- Footer Partial -->
+    <%- include ('./partials/footer.ejs') %>
+</body>

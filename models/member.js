@@ -17,5 +17,5 @@ const memberSchema = new Schema (
 // Create a Member model using the memberSchema
 const Member = mongoose.model('member', memberSchema)
 
-//export the Member model, will be accessed in index.js
+//export the Member model
 module.exports = Member

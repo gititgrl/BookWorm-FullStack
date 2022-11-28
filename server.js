@@ -10,13 +10,13 @@ const port = 3000
 const bodyparser = require('body-parser')
 const session = require("express-session")
 const router = require('./controllers/loginRoute.js')
+
 //access models
 const db = require('./models')
 
 //access controllers
 const booksCtrl = require('./controllers/books')
 const membersCtrl = require('./controllers/members')
-
 
 
 //+++++++++++++
@@ -36,37 +36,44 @@ app.use((req, res, next) => {
     console.log('I run for all routes');
     next()
 });
+
 app.use(bodyparser.json())
 app.use(bodyparser.urlencoded({extended: true}))
-//Session is so that the email will be remembered next log in
+
+//Session is so that the email will be remembered next login
 app.use(session({
     secret: 'secret',
     resave: false,
-    savUninitialized: true
+    saveUninitialized: true
 }))
+
 //login route
-app.use('/route', router)
+app.use('/route', router);
 
 
 
 //+++++++++++++
 //Routes
 //+++++++++++++
-// Index Route (GET/Read): This route affects both models
+// Index Route
 app.get('/', (req, res) => {
-    // query books from the database
-    // db.Book.find({}, (err, books) => {
-    //     // query members from the database
-    //     db.Member.find({}, (err, members) => {
-    //         // render `home.ejs` after data has been queried
-            res.render('home', {
-                // books: books,
-                // members: members,
-                tabTitle: 'Bookworm'
+    res.render('home', {
+        tabTitle: 'Bookworm'
+    })
+})
+
+//Dashboard route(GET/Read): This route affects both models
+app.get('/dashboard', (req,res) => {
+    db.Book.find({}, (err, books) => {
+        db.Member.find({}, (err,members) => {
+            res.render('dashboard', {
+                books: books,
+                members: members,
+                tabTitle: 'My Bookworm'
             })
         })
-//     })
-// })
+    })
+})
 //All routes affecting the books model: tells our app to look at controllers/books.js file to handle all routes that begin with localhost:3000/books
 app.use('/books', booksCtrl)
 //All routes affecting the members model: tells our app to look at controllers/members.js file to handle all routes that begin with localhost:3000/members

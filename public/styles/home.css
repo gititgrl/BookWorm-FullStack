@@ -2,18 +2,51 @@
 @import url('https://fonts.googleapis.com/css2?family=Gentium+Book+Plus&family=Rajdhani:wght@500&display=swap');
 
  body {
-    background-color: blanchedalmond;
+    background-color: rgb(252, 247, 236);
     font-family: 'Gentium Book Plus', serif;
  }.center-div {
     padding-top: 10%;
     
  }
+ .logout {
+   text-align: right;
+   padding: .2em;
+   text-decoration: none;
+ }
+ h1 {
+   text-align: center;
+ }
+ header li {
+   display:inline-flex;
+   text-decoration: none;
+   padding: 1em;
+
+ }
+ header li a:hover {
+   background-color: white;
+ }
+.loginContainer {
+   margin: auto;
+   /* width: 25%; */
+   padding: 3em 0 3em 0;
+   border: .2em;
+   border-style: double;
+   background-color: antiquewhite;
+ }
  form {
     padding: 0 3em;
+    
  }
  #login.title>span {
     font-size: .8em;
  }
+
  footer {
     text-align: center;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    
+
  }

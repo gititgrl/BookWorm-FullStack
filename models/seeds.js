@@ -11,7 +11,7 @@ const db = require('./')
         }, {
             name: 'A Wild Sheep Chase',
             author: 'Haruki Murakami',
-            description: 'It tells the story of a 30-year-old Japanese man who tries to cope with an approaching midlife crisis and find answers to the questions that overwhelm him.',
+            description: 'Murakami tells the story of a 30-year-old Japanese man who tries to cope with an approaching midlife crisis and find answers to the questions that overwhelm him.',
             img: 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1390619896l/20629795.jpg',
             genre: 'Fantasy Fiction'
         }, {
