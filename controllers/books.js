@@ -25,6 +25,12 @@ router.post('/', (req, res) => {
         res.send(book)
     })     
 })
+//Update Route
+router.put('/books/:id', (req, res) => {
+    db.Book.findByIdAndUpdate(req.params.id, req.body, {new: true }, (err, book) => {
+        res.send(book)
+    })
+})
 //Show Route
 router.get('/:id', (req, res) => {
     db.Book.findById(req.params.id, (err,books) => {

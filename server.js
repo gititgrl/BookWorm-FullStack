@@ -6,12 +6,13 @@
 const methodOverride = require('method-override')
 const express = require('express')
 const app = express()
-const port = 3000
+require('dotenv').config()
+const port = process.env.PORT
 const bodyparser = require('body-parser')
 const session = require("express-session")
 const router = require('./controllers/loginRoute.js')
 
-require('dotenv').config()
+
 //access models
 const db = require('./models')
 
