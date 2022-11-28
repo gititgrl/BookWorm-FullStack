@@ -11,6 +11,7 @@ const bodyparser = require('body-parser')
 const session = require("express-session")
 const router = require('./controllers/loginRoute.js')
 
+require('dotenv').config()
 //access models
 const db = require('./models')
 
