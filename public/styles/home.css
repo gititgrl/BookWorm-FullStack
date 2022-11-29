@@ -1,10 +1,8 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Gentium+Book+Plus&family=Rajdhani:wght@500&display=swap');
 
- body {
-    background-color: rgb(252, 247, 236);
-    font-family: 'Gentium Book Plus', serif;
- }.center-div {
+
+ .center-div {
     padding-top: 10%;
     
  }
@@ -41,12 +39,53 @@
     font-size: .8em;
  }
 
- footer {
-    text-align: center;
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    
+ .flex-grid {
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   /* flex-wrap: wrap; */
+   overflow: scroll;
+}
+ .book-card {
+   height: 450px;
+   width: calc(360px + 2vw);
+   margin: 2em;
+   padding: 2em;
+   background-color: antiquewhite;
+   border-radius: 2em;
+   text-align: center;
+}
+.book-card img {
+   height: 300px;
+   width: 200px;
+   border-radius: 2em;
+}
 
+.book-card figcaption * {
+   overflow: hidden;
+   white-space: nowrap;
+   text-overflow: ellipsis;
+}
+
+.book-card figcaption h5 {
+   text-align: left;
+}
+.member-card {
+   height: 450px;
+   width: calc(360px + 2vw);
+   margin: 2em;
+   padding: 2em;
+   background-color: antiquewhite;
+   border-radius: 2em;
+   text-align: center;
+}
+ footer {
+   display: block;
+    text-align: center;
+    height: 5.5em;
+    position: fixed;
+    bottom: 0;
+    transition: bottom 0.2s ease-in-out;
+    width: 100%;
+    padding: 0 0 2em 0;
  }

@@ -17,7 +17,9 @@ router.get('/dashboard', (req, res) => {
 //New Route
 router.get('/newbook', (req, res) => {
     console.log('newbook');
-    res.send('Test')
+    res.render('newBook', {
+        tabTitle: 'New Book'
+    })
 })
 //Create Rpute
 router.post('/', (req, res) => {
@@ -31,10 +33,19 @@ router.put('/books/:id', (req, res) => {
         res.send(book)
     })
 })
+//Delete Route
+router.delete('/books/:id', (req, res) => {
+    db.Book.findByIdAndDelete(req.params.id, (err, book) => {
+        res.redirect('/dashboard')
+    })
+})
 //Show Route
 router.get('/:id', (req, res) => {
     db.Book.findById(req.params.id, (err,books) => {
-        res.send(books)
+        res.render('showBook', {
+            book: books,
+            tabTitle: books.name
+        })
     })
 })
 //export these routes so they are accessible in server.js

@@ -1,26 +1,13 @@
 <!-- Header partial-->
     <%- include ('./partials/head.ejs') %>
-    
+    <link rel="stylesheet" href="/styles/home.css">
 <body>
     <h1>My Bookworm</h1>
-    <div class="flex-container">
-                <% for (let book of books) { %>
-                    <a href="/books/<%= book._id %>">
-                        <figure class="book-card">
-                            <img alt="<%= book.name %>" src="<%= book.img%>" width="300">
-                            <figcaption>
-                                <h2>
-                                    <%=book.name%>
-                                </h2>
-                                <h4>
-                                    <%= book.description %>
-                                </h4>
-                            </figcaption>
-                        </figure>
-                    </a>
-                    <% } %>
-    </div>
-    <div class="flex-container">
+    <ul>
+        <li><a href="/books/newbook">Add a New Book</a></li>
+        <li><a href="/members/newmember">Add a New Member</a></li>
+    </ul>
+    <div class="flex-grid">
         <% for (let member of members) { %>
             <a href="/members/<%= member._id %>">
                 <figure class="member-card">
@@ -33,6 +20,24 @@
             </a>
             <% } %>
     </div>
+    <div class="flex-grid">
+                <% for (let book of books) { %>
+                    <a href="/books/<%= book._id %>">
+                        <figure class="book-card">
+                            <img alt="<%= book.name %>" src="<%= book.img%>" width="300">
+                            <figcaption>
+                                <h5>
+                                    <%=book.name%>
+                                </h5>
+                                <h6>
+                                    <%= book.description %>
+                                </h6>
+                            </figcaption>
+                        </figure>
+                    </a>
+                    <% } %>
+    </div>
+
 <!-- Footer Partial -->
     <%- include ('./partials/footer.ejs') %>
 </body>
