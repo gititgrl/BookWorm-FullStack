@@ -1,1 +1,16 @@
 <!-- This file contains the form I need to edit a book -->
+<%- include ('./partials/head.ejs') %>
+<link rel="stylesheet" href="/styles/home.css">
+<body>
+    <div id="flex-container">
+        <form action="/books/:id" method="POST">
+           <input type="text" name="name" placeholder="<%= book.name%>"/>
+           <input type="text" name="author" placeholder="<%= book.author%>"/>
+           <textarea name="description" placeholder="<%= book.description%>"></textarea> 
+           <input type="text" name="img" placeholder="Img"/>
+           <input type="text" name="genre" placeholder="<%= book.genre%>"/>
+           <button type="submit">Edit Book</button>
+           
+        </form>
+    </div>
+</body>

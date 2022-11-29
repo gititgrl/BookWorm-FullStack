@@ -1,14 +1,16 @@
 <!-- This file contains the form I need to create a new book -->
 <%- include ('./partials/head.ejs') %>
 <link rel="stylesheet" href="/styles/home.css">
+<link rel="stylesheet" href="/styles/newAndEdit.css">
 <body>
     <div id="flex-container">
         <form action="/books/" method="POST">
-           <input type="text" name="name" placeholder="name"/>
-           <input type="text" name="author" placeholder="author"/>
-           <textarea name="description" placeholder="description"></textarea> 
-           <input type="text" name="img" placeholder="img"/>
-           <input type="text" name="genre" placeholder="genre"/>
+           <input type="text" name="name" placeholder="Title"/>
+           <input type="text" name="author" placeholder="Author"/>
+           <textarea name="description" placeholder="Description"></textarea> 
+           <input type="text" name="img" placeholder="Img"/>
+           <input type="text" name="genre" placeholder="Genre"/>
+           <button type="submit">Add New Book</button>
         </form>
     </div>
 </body>

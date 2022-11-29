@@ -21,30 +21,39 @@ router.get('/newbook', (req, res) => {
         tabTitle: 'New Book'
     })
 })
-//Create Rpute
+//Create Route
 router.post('/', (req, res) => {
     db.Book.create(req.body, (err, book) => {
-        res.send(book)
+        res.redirect('/dashboard')
     })     
 })
 //Update Route
 router.put('/books/:id', (req, res) => {
     db.Book.findByIdAndUpdate(req.params.id, req.body, {new: true }, (err, book) => {
-        res.send(book)
+        res.redirect('/books/' + book._id)
+    })
+})
+//Edit ejs route
+router.get('/:id/edit', (req, res) => {
+    db.Book.findById(req.params.id, (err, books) => {
+        res.render('editBook', {
+            book: books,
+            tabTitle: "Edit"
+        })
     })
 })
 //Delete Route
-router.delete('/books/:id', (req, res) => {
-    db.Book.findByIdAndDelete(req.params.id, (err, book) => {
+router.delete('/:id', (req, res) => {
+    db.Book.findByIdAndRemove({ _id: req.params.id}, (err, book) => {
         res.redirect('/dashboard')
     })
 })
 //Show Route
 router.get('/:id', (req, res) => {
-    db.Book.findById(req.params.id, (err,books) => {
+    db.Book.findById(req.params.id, (err, books) => {
         res.render('showBook', {
             book: books,
-            tabTitle: books.name
+            tabTitle: 'Books'
         })
     })
 })

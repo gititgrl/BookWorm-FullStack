@@ -1,0 +1,13 @@
+<!-- This file contains the form I need to edit  a member -->
+<%- include ('./partials/head.ejs') %>
+<link rel="stylesheet" href="/styles/home.css">
+<body>
+    <div id="flex-container">
+        <form action="/members/" method="POST">
+           <input type="text" name="name" placeholder="<%= member.name%>"/>
+           <input type="text" name="fav_book" placeholder="<%= member.fav_book%>"/>
+           <input type="text" name="fav_author" placeholder="<%= member.fav_author%>"/>
+           <button type="submit">Save New Changes</button>
+        </form>
+    </div>
+</body>

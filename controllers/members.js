@@ -24,7 +24,7 @@ router.get('/newmember', (req, res) => {
 //Create Rpute
 router.post('/', (req, res) => {
     db.Member.create(req.body, (err, member) => {
-        res.send(member)
+        res.redirect('/dashboard')
     })     
 })
 //Update Route
@@ -33,9 +33,18 @@ router.put('/members/:id', (req, res) => {
         res.send(member)
     })
 })
+//Edit ejs route
+router.get('/:id/edit', (req, res) => {
+    db.Member.findById(req.params.id, (err, members) => {
+        res.render('editMember', {
+            member: members,
+            tabTitle: "Edit"
+        })
+    })
+})
 //Delete Route
-router.delete('/members/:id', (req, res) => {
-    db.Member.findByIdAndDelete(req.params.id, (err, member) => {
+router.delete('/:id', (req, res) => {
+    db.Member.findByIdAndRemove(req.params.id, (err, member) => {
         res.redirect('/dashboard')
     })
 })
@@ -44,7 +53,7 @@ router.get('/:id', (req, res) => {
     db.Member.findById(req.params.id, (err,members) => {
         res.render('showMember', {
             member: members,
-            tabTitle: members.name
+            tabTitle: 'Members'
         })
     })
 })

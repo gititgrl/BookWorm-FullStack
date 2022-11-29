@@ -7,19 +7,20 @@
         <li><a href="/books/newbook">Add a New Book</a></li>
         <li><a href="/members/newmember">Add a New Member</a></li>
     </ul>
-    <div class="flex-grid">
-        <% for (let member of members) { %>
-            <a href="/members/<%= member._id %>">
-                <figure class="member-card">
-                    <figcaption>
-                        <h2>
+    <div class="flex-container">
+        <h1 class="members">Members</h1>
+        <ul>
+            <% for (let member of members) { %>
+                <a href="/members/<%= member._id %>">
+                    <li class="member-object">
+                        <h2 class="member_names">
                             <%=member.name%>
                         </h2>
-                    </figcaption>
-                </figure>
-            </a>
+                    </li>
+                </a>
             <% } %>
     </div>
+
     <div class="flex-grid">
                 <% for (let book of books) { %>
                     <a href="/books/<%= book._id %>">

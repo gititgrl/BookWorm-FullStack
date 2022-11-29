@@ -33,17 +33,17 @@
  }
  form {
     padding: 0 3em;
-    
  }
  #login.title>span {
     font-size: .8em;
  }
-
+li {
+   text-align: center;
+}
  .flex-grid {
    display: flex;
    flex-direction: row;
    justify-content: space-between;
-   /* flex-wrap: wrap; */
    overflow: scroll;
 }
  .book-card {
@@ -70,22 +70,12 @@
 .book-card figcaption h5 {
    text-align: left;
 }
-.member-card {
-   height: 450px;
-   width: calc(360px + 2vw);
-   margin: 2em;
-   padding: 2em;
-   background-color: antiquewhite;
-   border-radius: 2em;
-   text-align: center;
+.flex-container h1, h2 {
+   padding-left: 1em;
+   text-align: left;
 }
+
  footer {
-   display: block;
-    text-align: center;
-    height: 5.5em;
-    position: fixed;
-    bottom: 0;
-    transition: bottom 0.2s ease-in-out;
-    width: 100%;
-    padding: 0 0 2em 0;
+      margin-top: 2em;
+      text-align: center;
  }
