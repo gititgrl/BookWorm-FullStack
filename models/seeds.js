@@ -1,5 +1,7 @@
 //SEED Route for books. This route when accessed will execute the function below and see our database.
 const db = require('./')
+const mongoose = require("mongoose");
+const connectionString = process.env.MONGODBURI
     const seed_books =
     [
         {
@@ -48,35 +50,69 @@ const seed_members = [
         fav_author: 'Alice Steinbach'
     }
 ]
+mongoose.connection.on('connected', () => {
+    console.log('mongoose connected to ', connectionString);
+    db.Book.deleteMany({}, (err, books) => {
+        if (err) {
+            console.log('Error occured in remove', err)
+        } else {
+            console.log('Removed all books')
+    
+            db.Book.insertMany(seed_books, (err, books) => {
+                if (err) {
+                    console.log('Error occured in insertMany', err)
+                } else {
+                    console.log('Created', books.length, "books")
+                }
+            })
+        }
+    })
+    
+    db.Member.deleteMany({}, (err, members) => {
+        if (err) {
+            console.log('Error occured in remove', err)
+        } else {
+            console.log('Removed all members')
+    
+            db.Member.insertMany(seed_members, (err, members) => {
+                if (err) {
+                    console.log('Error occured in insertMany', err)
+                } else {
+                    console.log('Created', members.length, "members")
+                }
+            })
+        }
+    })
+});
 
-db.Book.deleteMany({}, (err, books) => {
-    if (err) {
-        console.log('Error occured in remove', err)
-    } else {
-        console.log('Removed all books')
+// db.Book.deleteMany({}, (err, books) => {
+//     if (err) {
+//         console.log('Error occured in remove', err)
+//     } else {
+//         console.log('Removed all books')
 
-        db.Book.insertMany(seed_books, (err, books) => {
-            if (err) {
-                console.log('Error occured in insertMany', err)
-            } else {
-                console.log('Created', books.length, "books")
-            }
-        })
-    }
-})
+//         db.Book.insertMany(seed_books, (err, books) => {
+//             if (err) {
+//                 console.log('Error occured in insertMany', err)
+//             } else {
+//                 console.log('Created', books.length, "books")
+//             }
+//         })
+//     }
+// })
 
-db.Member.deleteMany({}, (err, members) => {
-    if (err) {
-        console.log('Error occured in remove', err)
-    } else {
-        console.log('Removed all members')
+// db.Member.deleteMany({}, (err, members) => {
+//     if (err) {
+//         console.log('Error occured in remove', err)
+//     } else {
+//         console.log('Removed all members')
 
-        db.Member.insertMany(seed_members, (err, members) => {
-            if (err) {
-                console.log('Error occured in insertMany', err)
-            } else {
-                console.log('Created', members.length, "members")
-            }
-        })
-    }
-})
+//         db.Member.insertMany(seed_members, (err, members) => {
+//             if (err) {
+//                 console.log('Error occured in insertMany', err)
+//             } else {
+//                 console.log('Created', members.length, "members")
+//             }
+//         })
+//     }
+// })

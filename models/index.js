@@ -2,7 +2,11 @@
 
 // dependencies
 const mongoose = require("mongoose");
-require('dotenv').config()
+const path = require('path')
+require('dotenv').config({
+  path: path.resolve(__dirname, '../.env')
+})
+console.log(process.env.MONGODBURI)
 // connect to MongoDB via mongoose
 const connectionString = process.env.MONGODBURI
 mongoose.connect(
@@ -11,9 +15,9 @@ mongoose.connect(
 );
 
 // console.log() connection status
-mongoose.connection.on('connected', () => {
-    console.log('mongoose connected to ', connectionString);
-});
+// mongoose.connection.on('connected', () => {
+//     console.log('mongoose connected to ', connectionString);
+// });
 
 mongoose.connection.on('disconnected', () => {
     console.log('mongoose disconnected to ', connectionString);
