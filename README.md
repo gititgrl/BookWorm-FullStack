@@ -24,15 +24,6 @@ This is a full CRUD app. Below is a table of the required routes.
     | /books/:id         | DELETE        | destroy         | delete          |                  |
     | /members/:id       | DELETE        | destroy         | delete          |                  |
 
-
-### User Stories
-As a avid reader, I would like to see what my friends are reading and add their book choices to my own book club.
-As a teacher, I would like to share my favorite books with other teachers that they can use in the classroom.
-
-### Wire Frames
-![IMG_4261](https://user-images.githubusercontent.com/112737174/204888704-837c4903-51be-49cb-ac43-45ca9875e678.jpg)
-![IMG_4262](https://user-images.githubusercontent.com/112737174/204888725-daf67c5e-a7eb-4675-a862-e708cb5a6a64.jpg)
-
 ### Technologies Used
  Javascript 
  EJS 
@@ -41,4 +32,15 @@ As a teacher, I would like to share my favorite books with other teachers that t
  MongoDB 
  Express
  Mongoose
+ Bootstrap
+ Session
+ Passport
+### User Stories
+As a avid reader, I would like to see what my friends are reading and add their book choices to my own book club.
+As a teacher, I would like to share my favorite books with other teachers that they can use in the classroom.
+
+### Wire Frames
+![IMG_4261](https://user-images.githubusercontent.com/112737174/204888704-837c4903-51be-49cb-ac43-45ca9875e678.jpg)
+![IMG_4262](https://user-images.githubusercontent.com/112737174/204888725-daf67c5e-a7eb-4675-a862-e708cb5a6a64.jpg)
+
 
