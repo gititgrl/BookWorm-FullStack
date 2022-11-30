@@ -26,3 +26,4 @@ mongoose.connection.on('error', (error) => {
 // access models
 module.exports.Book = require("./book.js");
 module.exports.Member = require("./member.js");
+module.exports.User = require("./user.js")

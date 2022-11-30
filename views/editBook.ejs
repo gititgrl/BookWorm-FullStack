@@ -3,14 +3,15 @@
 <link rel="stylesheet" href="/styles/home.css">
 <body>
     <div id="flex-container">
-        <form action="/books/:id" method="POST">
+        <form action="/books/<%= book._id %>?_method=PUT" method="POST" id="editForm">
            <input type="text" name="name" placeholder="<%= book.name%>"/>
            <input type="text" name="author" placeholder="<%= book.author%>"/>
            <textarea name="description" placeholder="<%= book.description%>"></textarea> 
            <input type="text" name="img" placeholder="Img"/>
            <input type="text" name="genre" placeholder="<%= book.genre%>"/>
-           <button type="submit">Edit Book</button>
-           
+           <button type="submit" class="btn btn-success rounded-pill">Edit Book</button>  
+           <a href="/dashboard" id="cancel" name="cancel" class="btn btn-danger">Cancel</a>
         </form>
+        
     </div>
 </body>

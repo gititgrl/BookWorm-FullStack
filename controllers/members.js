@@ -28,9 +28,9 @@ router.post('/', (req, res) => {
     })     
 })
 //Update Route
-router.put('/members/:id', (req, res) => {
+router.put('/:id', (req, res) => {
     db.Member.findByIdAndUpdate(req.params.id, req.body, {new: true }, (err, member) => {
-        res.send(member)
+        res.redirect(`/members/${req.params.id}`)
     })
 })
 //Edit ejs route

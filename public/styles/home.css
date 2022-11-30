@@ -1,7 +1,12 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Gentium+Book+Plus&family=Rajdhani:wght@500&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Gentium+Book+Plus&family=Rajdhani:wght@500&display=swap'); */
+body {
 
+   background-image: url('/public/assets/book.jpg');
+   background-repeat: no-repeat;
+   background-size: cover;
 
+}
  .center-div {
     padding-top: 10%;
     
@@ -20,8 +25,11 @@
    padding: 1em;
 
  }
+h4.member-names {
+   text-decoration: none;
+ }
  header li a:hover {
-   background-color: white;
+   background-color:darkblue
  }
 .loginContainer {
    margin: auto;
@@ -39,12 +47,15 @@
  }
 li {
    text-align: center;
+   text-decoration: none;
+   list-style: none;
 }
  .flex-grid {
    display: flex;
    flex-direction: row;
    justify-content: space-between;
-   overflow: scroll;
+   overflow-x: scroll;
+   flex-wrap: wrap;
 }
  .book-card {
    height: 450px;
@@ -56,26 +67,39 @@ li {
    text-align: center;
 }
 .book-card img {
-   height: 300px;
-   width: 200px;
+   height:20em;
+   width: 13em;
    border-radius: 2em;
 }
 
 .book-card figcaption * {
    overflow: hidden;
    white-space: nowrap;
-   text-overflow: ellipsis;
+   text-align: center;
 }
 
-.book-card figcaption h5 {
-   text-align: left;
+.book-card h6 {
+   text-overflow: ellipsis;
 }
-.flex-container h1, h2 {
-   padding-left: 1em;
-   text-align: left;
+.flex-container {
+   display:block;
+   box-sizing: border-box;
+   justify-content: center;
+   text-align: center;
+   border: 1em;
+   border-style: double;
+   border-color: papayawhip;
+   border-radius: 50% 20% / 20% 50%;;
+   margin: 2%;
 }
+
 
  footer {
       margin-top: 2em;
       text-align: center;
  }
+
+
+
+
+ 

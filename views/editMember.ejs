@@ -3,11 +3,12 @@
 <link rel="stylesheet" href="/styles/home.css">
 <body>
     <div id="flex-container">
-        <form action="/members/" method="POST">
+        <form action="/members/<%= member._id %>?_method=PUT" method="POST" id="editForm">
            <input type="text" name="name" placeholder="<%= member.name%>"/>
            <input type="text" name="fav_book" placeholder="<%= member.fav_book%>"/>
            <input type="text" name="fav_author" placeholder="<%= member.fav_author%>"/>
-           <button type="submit">Save New Changes</button>
+           <button type="submit" class="btn btn-success rounded-pill">Edit Member</button>  
+           <a href="/dashboard" id="cancel" name="cancel" class="btn btn-danger rounded pill">Cancel</a>
         </form>
     </div>
 </body>

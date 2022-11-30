@@ -16,7 +16,6 @@ router.get('/dashboard', (req, res) => {
 
 //New Route
 router.get('/newbook', (req, res) => {
-    console.log('newbook');
     res.render('newBook', {
         tabTitle: 'New Book'
     })
@@ -28,9 +27,9 @@ router.post('/', (req, res) => {
     })     
 })
 //Update Route
-router.put('/books/:id', (req, res) => {
+router.put('/:id', (req, res) => {
     db.Book.findByIdAndUpdate(req.params.id, req.body, {new: true }, (err, book) => {
-        res.redirect('/books/' + book._id)
+        res.redirect(`/books/${req.params.id}`)
     })
 })
 //Edit ejs route

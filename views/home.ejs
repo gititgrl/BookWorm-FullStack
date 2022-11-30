@@ -2,28 +2,13 @@
 <link rel ="stylesheet" href="styles/login.css">
 <link rel ="stylesheet" href="styles/home.css">
 <body>
-<div class="text-center center-div" id="login">
     <div class="loginContainer"> 
         <div class="title pb-5">
             <h3>Welcome to Bookworm!</h3>
-            <span>Create Account</span>
+            <img src="/assets/book.jpg" width="100%" alt="Book">
         </div>
-        <form action="/route/login" method="POST" class="pb-3">
-            <div class="form-group">
-                <input type="email" class="form-control" placeholder="email" name="Email">
-                <br>
-            </div>
-            <div class="form-groug">
-                <input type="password" class="form-control" name="password" placeholder="Password">
-            </div>
-            <br>
-            <button type="submit" class="btn btn-success rounded-pill">Submit</button>
-            <br>
-            <br>
-            <%- include ('./partials/myBookClub.ejs') %>
-        </form>
     </div>
-</div>
+
     <!-- Footer -->
     <%- include ('./partials/footer.ejs') %>
 </body>

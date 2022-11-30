@@ -1,7 +1,7 @@
 <!-- This file contains the form I need to show, edit or delete a member -->
 <%- include ('./partials/head.ejs') %>
 <link rel="stylesheet" href="/styles/home.css">
-<link rel="stylesheet" href="/styles/showMember.css"
+<link rel="stylesheet" href="/styles/showMember.css">
 <div id="showmember">
     
     <h1><%= member.name %></h1>
@@ -13,7 +13,7 @@
     </p>
 </div>
 <form action="/members/<%= member._id %>?_method=DELETE" method="POST">
-    <button type="submit">Delete Member</button>
+    <button type="delete" class="btn btn-danger rounded-pill">Delete Member</button> 
 </form>
-<a href='/members/<%= member._id%>/edit'><button>Edit Member</button></a>
+<a href='/members/<%= member._id%>/edit' id="edit" name="edit" class="btn btn-warning rounded-pill">Edit Member</a>
 

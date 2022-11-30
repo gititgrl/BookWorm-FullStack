@@ -1,0 +1,19 @@
+<%- include ('./partials/head.ejs') %>
+<h2>Please Register Below</h2>
+<% if(typeof err !='undefined' ){ %>
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong> Error </strong>
+        <%= err %>.
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    <% } %>
+<form action="/users/register" method="POST">
+<div class="form-group"></div>
+<label>Email</label>
+<input class="form-control" name="email" type="text" placeholder="Enter email"/>
+<label>Password</label>
+<input class="form-control" name="password" type="text" placeholder="Enter your password"/>
+<label>Confirm Password</label>
+<input class="form-control" name="password2" type="text" placeholder="Confirm your password"/>
+<button type="submit" class="btn btn-primary" name="submit" value="Register"></button>
+</form>
