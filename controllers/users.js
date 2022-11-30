@@ -19,23 +19,28 @@ router.get('/login', (req, res, next) => {
         tabTitle: 'Login'
     })
 })
+//Logged in
+router.post('/loggedin', (req, res, next) => {
+    res.render('dashboard', {
+    })     
+})
 //Add new member register route
 router.post('/register', (req, res, next) => {
     const email = req.body.email
     const password = req.body.password
-    const password2 = req.body.password
+    const password2 = req.body.password2
     console.log(req.body.email)
 
     if (!email || !password || !password2) {
         res.render("signup", { err: "All Fields Required !", csrfToken: req.csrfToken() });
-    } else if (password != confirmpassword) {
+    } else if (password != password2) {
         res.render("signup", { err: "Password Don't Match !", csrfToken: req.csrfToken() });
     } else {
 
         // validate email and username and password 
         // skipping validation
         // check if a user exists
-        user.findOne({ $or: [{ email: email }, { username: username }] }, function (err, data) {
+        user.findOne({ $or: [{ email: email }, { password: password }] }, function (err, data) {
             if (err) throw err;
             if (data) {
                 res.render("signup", { err: "User Exists, Try Logging In !", csrfToken: req.csrfToken() });
