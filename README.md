@@ -1,7 +1,8 @@
 # Bookworm
 Bookworm is an app that allows readers of all kinds to add their friends and favorite books to a collection.
 
-<img width="1440" alt="homepage" src="/public/assets/HomePage.png"
+![Screen Shot 2022-11-30 at 9 35 36 AM](https://user-images.githubusercontent.com/112737174/204870531-c9c9f55b-abdc-47ea-9d0f-f47ae6f0b5fc.png)
+
 ## Description
 
 This is a full CRUD app. Below is a table of the required routes.
