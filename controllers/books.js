@@ -21,7 +21,7 @@ router.get('/newbook', (req, res) => {
     })
 })
 //Create Route
-router.post('/books', (req, res) => {
+router.post('/', (req, res) => {
     db.Book.create(req.body, (err, book) => {
         res.redirect('/dashboard')
     })     
