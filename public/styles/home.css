@@ -99,6 +99,10 @@ li {
       text-align: center;
  }
 
+ .responsive {
+   width: 100%;
+   height: auto;
+ }
 
 
 
